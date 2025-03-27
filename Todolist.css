@@ -1,0 +1,139 @@
+body{
+  padding: 0%;
+  margin: 0%;
+  font-family: Calibri;
+  height: auto;
+}
+.Container-div{
+  height: 100%;
+  width: 100%;
+  background-color: #A4BEF3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Box-div{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 665px;
+  width: 535px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid #553D36;
+}
+.Title{
+  margin-top: 40px;
+}
+.Inpbtn-div{
+  height: 40px;
+  width: 525px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+}
+.Input{
+  height: 34px;
+  width: 315px;
+  border: none;
+  font-family: Calibri;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 90px;
+  font-size: 16px;
+  color: #000000;
+  outline: none;
+  transition: border 0.10s;
+  }
+.Input:focus{
+  border: 2px solid #E83151;
+  height: 32px;
+}
+.Input:hover{
+  border: 2px solid #E83151;
+  height: 32px;
+}
+.Input::placeholder{
+  color: #000000;
+  font-size: 18px;
+}
+.Input1::placeholder{
+  color: #E83151;
+}
+.Add{
+  height: 39px;
+  width: 90px;
+  border: none;
+  background-color: #E73C5A;
+  color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  position: absolute;
+  left: 384px;
+  font-size: 15px;
+}
+.Task-div{
+  padding: 10px 10px 10px 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  background-color: white;
+  border: 2px solid #553D36;
+  border-radius: 6px;
+}
+.Dot-btn{
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid black;
+  transition: background-color 0.1s;
+}
+.Dot-btn2{
+  background-color: #E73C5A;
+  border: none;
+  transition: background-color 0.4s;
+}
+.Task-text{
+  padding: 0%;
+  margin: 0%;
+  margin-left: 10px;
+  width: 375px;
+}
+.linethrough{
+  text-decoration: line-through;
+  transition: text-decoration 0.9s;
+}
+.Del-btn{
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  margin-left: 10px;
+  transition: background-color 0.20s, fill 0.2s;
+}
+.Del-btn:hover{
+  background-color: #E83151;
+  fill: white;
+  cursor: pointer;
+}
+.Del-icon{
+  transition: fill 0.10s;
+}
+.Display{
+  display: none;
+}
+.Add:hover, .Task-div:hover, .Dot-btn:hover{
+  cursor: pointer;
+}
+
