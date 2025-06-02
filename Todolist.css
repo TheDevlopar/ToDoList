@@ -107,13 +107,15 @@ body{
   padding: 0%;
   margin: 0%;
   margin-left: 10px;
-  width: 375px;
+  font-size: 16px;
+  min-width: 280px;
+  word-wrap: break-word;
 }
 .linethrough{
   text-decoration: line-through;
   transition: text-decoration 0.9s;
 }
-.Del-btn{
+.Del-btn, .Edit-btn{
   width: 40px;
   height: 40px;
   background-color: transparent;
@@ -122,13 +124,15 @@ body{
   margin-left: 10px;
   transition: background-color 0.20s, fill 0.2s;
 }
-.Del-btn:hover{
+.Del-btn:hover, .Edit-btn:hover{
   background-color: #E83151;
   fill: white;
   cursor: pointer;
 }
-.Del-icon{
+.Del-icon, .Edit-icon{
   transition: fill 0.10s;
+  height: 24px;
+  width: 24px;
 }
 .Display{
   display: none;
@@ -137,3 +141,60 @@ body{
   cursor: pointer;
 }
 
+.Edit-box{
+  position: absolute;
+  top: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 150px;
+  width: 400px;
+  padding: 7px 20px 7px 20px;
+  background-color: white;
+  display: flex;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.Edit-text{
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+.Edit-input{
+  width: 380px;
+  height: 30px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Edit-input:hover, .Edit-input:focus{
+  border: 2px solid black;
+  height: 29px;
+  transition: border 0.1s;
+}
+.Edit-btns-div{
+  margin-top: 20px;
+  height: 60px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+.Save-btn, .Cancel-btn{
+  width: 80px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #E83151;
+  color: white;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.Save-btn:hover, .Cancel-btn:hover{
+  cursor: pointer;
+}
