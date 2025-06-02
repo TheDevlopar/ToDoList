@@ -1,9 +1,12 @@
 let Box = document.querySelector(".Box-div");
 let Add = document.querySelector(".Add");
 let Input = document.querySelector(".Input");
+let obj = {};
+let id = 1;
+loadTasks();  // Load tasks from localStorage when the page loads
 
 
- // Main logic starts here i guess...
+// Adding event listener to the Add button and Input field
 Add.addEventListener("click", () => {
   if(Input.value === ''){
     Input.placeholder = "Write your task here";
@@ -46,6 +49,7 @@ function Createeditsvg(){
   return svg;
 }
 
+// Main logic starts here i guess...
 function Createtask(){
   let Task_div = document.createElement("div");
   let Dotbtn = document.createElement("button");
@@ -55,7 +59,9 @@ function Createtask(){
   let clicked = false;
   let Delsvg = Createdelsvg();
   let Editsvg = Createeditsvg();
-  
+  obj[id] = Input.value;
+  //id increment at the bottom of the function to ensure unique ids for each task
+
   Box.appendChild(Task_div);
   Task_div.classList.add("Task-div");
 
@@ -64,6 +70,7 @@ function Createtask(){
 
   Task_div.appendChild(Task_text);
   Task_text.classList.add("Task-text");
+  Task_text.id = id;
   Task_text.innerText = Input.value;
 
   Task_div.appendChild(Editbtn);
@@ -94,7 +101,10 @@ function Createtask(){
   })
 
   Delbtn.addEventListener("click", () => {
+    delete obj[Task_text.id];
+    saveTasks();    // Save the updated tasks to localStorage
     Task_div.remove();
+    
   })
 
   // Edit functionality
@@ -130,7 +140,9 @@ function Createtask(){
         Editinput.placeholder = "Enter the updated task";
       }
       else{
-        Task_text.innerText = Editinput.value;
+        Task_text.innerText = Editinput.value; 
+        obj[Task_text.id] = Editinput.value;
+        saveTasks();    // Save the updated tasks to localStorage
         Editbox.remove();
       }
     })
@@ -142,7 +154,9 @@ function Createtask(){
           Editinput.placeholder = "Enter the updated task";
         }
         else{
-          Task_text.innerText = Editinput.value;
+          Task_text.innerText = Editinput.value; 
+          obj[Task_text.id] = Editinput.value;
+          saveTasks();    // Save the updated tasks to localStorage
           Editbox.remove();
         }
       }
@@ -153,4 +167,22 @@ function Createtask(){
       Editbox.remove();
     })
   })
+
+  id++;
+  saveTasks();    // Save the new task to localStorage
+}
+
+function saveTasks() {
+  localStorage.setItem('tasks', JSON.stringify(obj));
+}
+function loadTasks() {
+  let saved = localStorage.getItem('tasks');
+  if(saved){
+    obj = JSON.parse(saved);
+    for(let key in obj) {
+      Input.value = obj[key];
+      Createtask();
+      Input.value = '';  // Clear the input after creating tasks
+    }
+  }
 }
